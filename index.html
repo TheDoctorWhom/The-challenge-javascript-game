@@ -709,42 +709,54 @@
             if (player1DefeatedCount < player1Cards.length && player2DefeatedCount < player2Cards.length) {
                 battleCatagories = randomCatagories(numbersOfCatagories);
             } // end of new elimination if
-            else{
+            else {
                 elimination.innerHTML = player1DefeatedCount === player1Cards.length ? 'You Lose' : 'You Win';
-            }//end of else
+            } //end of else
             // console.log(player1DefeatedCount);
             // console.log(player2DefeatedCount);
         } // end of state if
     }); // end of play button function
 
-    // document.getElementById('reset').addEventListener('click', function{
+    document.getElementById('reset').addEventListener('click', function() {
 
-    // player1CardSelected = 0;
-    // player2CardSelected = 0;
+        player1CardSelected = 0;
+        player2CardSelected = 0;
 
-    // player1DefeatedCount = 0;
-    // player2DefeatedCount = 0;
-
-    // player1DefeatedCount = 0;
-    // player2DefeatedCount = 0;
-
-    // for (let i = 0; i < 5; i++) {
-
-    //     player1Cards[i] = randomCard();
-    //     player2Cards[i] = randomCard();
-
-    //     player1[i].classList.remove('defeated');
-    //     player1[player1CardSelected].classList.add('selected');
-
-    //     player2[i].classList.remove('defeated');
-    //     player2[player2CardSelected].classList.add('selected');
-
-    // } // end of i loop
+        player1DefeatedCount = 0;
+        player2DefeatedCount = 0;
 
 
+        for (let i = 0; i < 5; i++) {
+
+            player1Cards[i] = randomCard();
+            player2Cards[i] = randomCard();
+
+            player1[i].classList.remove('defeated');
+            player2[i].classList.remove('defeated');
+
+            player1[i].classList.remove('selected');
+            player2[i].classList.remove('selected');
+
+        } // end of i loop
 
 
-    // }); // end of reset click function
+        playerCardChecker(player1Cards);
+        playerCardChecker(player2Cards);
+
+        playersCardsChecker(player1Cards, player2Cards);
+
+        battleCatagories = randomCatagories(numbersOfCatagories);
+
+        player1[player1CardSelected].classList.add('selected');
+        player2[player2CardSelected].classList.add('selected');
+
+        displayPlayerCards(player1, player1Cards);
+        displayPlayerCards(player2, player2Cards);
+
+        playLog.innerHTML = '';
+
+
+    }); // end of reset click function
     </script>
 </body>
 
